@@ -25,9 +25,9 @@ chmod +x /usr/sbin/ngssc
 mkdir -p /opt/java/java17/
 if [[ $TARGETARCH == "arm"* ]] 
 then 
-    cp -vrf dep/arm/java /opt/java/java17/
+    cp -vrf dep/arm/java/ /opt/java/java17/
 else
-    cp -vrf dep/amd/java /opt/java/java17/
+    cp -vrf dep/amd/java/ /opt/java/java17/
 fi
 
 
