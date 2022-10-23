@@ -25,9 +25,9 @@ chmod +x /usr/sbin/ngssc
 
 if [[ $TARGETARCH == "arm"* ]] 
 then 
-    tar -xzf dep/java17-arm.tar.gz --strip-components=1 -C /opt/java17
+    cp dep/arm/java /opt/java17
 else
-    tar -xzf dep/java17-amd.tar.gz --strip-components=1 -C /opt/java17
+    cp dep/amd/java /opt/java17
 fi
 
 

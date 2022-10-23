@@ -23,5 +23,7 @@ RUN chmod +x /docker-entrypoint.d/01-backend.sh
 
 ENV AM_I_IN_A_DOCKER_CONTAINER True
 
+RUN rm -r /dep
+
 EXPOSE 8080
 EXPOSE 80

@@ -27,11 +27,19 @@ jobs:
       
     - name: Download Java
       run: |
-        mkdir dep
-        wget -O dep/java17-arm.tar.gz "https://cdn.azul.com/zulu-embedded/bin/zulu17.38.21-ca-jre17.0.5-linux_aarch32hf.tar.gz"
-        wget -O dep/java17-amd.tar.gz "https://cdn.azul.com/zulu/bin/zulu17.38.21-ca-jre17.0.5-linux_x64.tar.gz"
+        mkdir -p dep/arm/java
+        mkdir -p dep/amd/java
+
+        wget -O dep/arm/archive/java17.tar.gz "https://cdn.azul.com/zulu-embedded/bin/zulu17.38.21-ca-jre17.0.5-linux_aarch32hf.tar.gz"
+        wget -O dep/amd/archive/java17.tar.gz "https://cdn.azul.com/zulu/bin/zulu17.38.21-ca-jre17.0.5-linux_x64.tar.gz"
       shell: bash
       
+    - name: Extract Java
+      run: |
+        tar -xzf dep/arm/archive/java17.tar.gz  --strip-components=1 -C dep/arm/java
+        tar -xzf dep/amd/archive/java17.tar.gz  --strip-components=1 -C dep/amd/java
+      shell: bash
+
     - name: Build the Docker image
       run: docker buildx build --push --platform=linux/amd64,linux/arm64,linux/arm/v7 --progress=plain --no-cache -t bskjon/dnj:latest .
 
