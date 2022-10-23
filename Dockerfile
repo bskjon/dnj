@@ -2,10 +2,9 @@ FROM nginx:latest
 
 ARG TARGETARCH
 
-# RUN \
-#     apt update && \
-#     apt upgrade -y && \
-#     apt install -y --no-install-recommends
+RUN \
+    apt update && \
+    apt install -y wget
 
 COPY installer.sh /installer.sh
 RUN chmod +x /installer.sh
