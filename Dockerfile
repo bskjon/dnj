@@ -17,7 +17,7 @@ RUN chmod +x /docker-entrypoint.d/01-backend.sh
 
 # Cleanup
 RUN rm /dependency-installer.sh
-RUN rm java.tar.gz
+# RUN rm java.tar.gz
 
 EXPOSE 8080
 EXPOSE 80
