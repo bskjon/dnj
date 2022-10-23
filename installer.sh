@@ -1,7 +1,6 @@
 #!/bin/bash
 
 mkdir -p /usr/sbin/
-mkdir -p /opt/java17
 
 version=$(basename $(curl -fs -o/dev/null -w %{redirect_url} https://github.com/kyubisation/angular-server-side-configuration/releases/latest))
 
@@ -23,11 +22,12 @@ fi
 chmod +x /usr/sbin/ngssc
 
 
+mkdir -p /opt/java/java17/
 if [[ $TARGETARCH == "arm"* ]] 
 then 
-    cp -r dep/arm/java /opt/java17
+    cp -r dep/arm/java /opt/java/java17
 else
-    cp -r dep/amd/java /opt/java17
+    cp -r dep/amd/java /opt/java/java17
 fi
 
 
@@ -36,7 +36,7 @@ if [ -z "$(ls -A -- "/opt/java17")" ]; then
     printf "\nExiting now =>"
     exit 1
 fi
-chmod +x /opt/java17/bin/java
+chmod +x /opt/java/java17/bin/java
 
 printf "\n\Setting default Java\n"
-update-alternatives --install /usr/bin/java java /opt/java17/bin/java 100
+update-alternatives --install /usr/bin/java java /opt/java/java17/bin/java 100
