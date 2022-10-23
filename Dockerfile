@@ -1,11 +1,7 @@
 FROM nginx:latest
 
-
-# Wont need these..
-# RUN \
-#     apt update && \
-#     apt upgrade -y && \
-#     apt install -y --no-install-recommends
+ARG TARGETARCH
+ENV AM_I_IN_A_DOCKER_CONTAINER True
 
 
 COPY dependency-installer.sh /dependency-installer.sh
@@ -21,9 +17,7 @@ RUN chmod +x /docker-entrypoint.d/01-backend.sh
 
 # Cleanup
 RUN rm /dependency-installer.sh
+RUN rm java.tar.gz
 
 EXPOSE 8080
 EXPOSE 80
-
-# CMD ["nginx", "-g", "daemon off;"]
-# ENTRYPOINT [ "/entrypoint.sh" ]
