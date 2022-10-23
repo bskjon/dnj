@@ -27,8 +27,8 @@ jobs:
       
     - name: Download Java
       run: |
-        mkdir -p dep/arm/java
-        mkdir -p dep/amd/java
+        mkdir -p dep/arm/archive
+        mkdir -p dep/amd/archive
 
         wget -O dep/arm/archive/java17.tar.gz "https://cdn.azul.com/zulu-embedded/bin/zulu17.38.21-ca-jre17.0.5-linux_aarch32hf.tar.gz"
         wget -O dep/amd/archive/java17.tar.gz "https://cdn.azul.com/zulu/bin/zulu17.38.21-ca-jre17.0.5-linux_x64.tar.gz"
