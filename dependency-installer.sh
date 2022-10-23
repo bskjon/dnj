@@ -29,4 +29,4 @@ tar -xzvf ./java.tar.gz --strip-components=1 -C /opt/java17
 chmod +x /opt/java17/bin/java
 
 update-alternatives --install /usr/bin/java java /opt/java17/bin/java 100
-rm java.tar.gz
+rm ./java.tar.gz
