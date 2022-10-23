@@ -31,7 +31,7 @@ else
 fi
 
 
-if [ -z "$(ls -A -- "/opt/java17")" ]; then
+if [ -z "$(ls -A -- "/opt/java/java17/bin/java")" ]; then
     printf "\n\nJava folder is empty!\n\n"
     printf "\nExiting now =>"
     exit 1
