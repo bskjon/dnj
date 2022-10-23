@@ -19,9 +19,11 @@ chmod +x /usr/sbin/ngssc
 
 if [[ $TARGETARCH == "arm"* ]] 
 then 
-    curl -L https://cdn.azul.com/zulu-embedded/bin/zulu17.38.21-ca-jre17.0.5-linux_aarch32hf.tar.gz -o java.tar.gz
+    curl -L "https://cdn.azul.com/zulu-embedded/bin/zulu17.38.21-ca-jre17.0.5-linux_aarch32hf.tar.gz" -o java.tar.gz
+    echo ls -la 
 else
-    curl -L https://cdn.azul.com/zulu/bin/zulu17.38.21-ca-jre17.0.5-linux_x64.tar.gz -o java.tar.gz
+    curl -L "https://cdn.azul.com/zulu/bin/zulu17.38.21-ca-jre17.0.5-linux_x64.tar.gz" -o java.tar.gz
+    echo ls -la 
 fi
 
 mkdir -p /opt/java17
