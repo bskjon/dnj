@@ -4,6 +4,7 @@ ARG TARGETARCH
 
 RUN \
     apt update && \
+    apt upgrade -y && \
     apt install -y wget
 
 COPY installer.sh /installer.sh
