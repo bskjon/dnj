@@ -25,9 +25,9 @@ chmod +x /usr/sbin/ngssc
 
 if [[ $TARGETARCH == "arm"* ]] 
 then 
-    cp dep/arm/java /opt/java17
+    cp -r dep/arm/java /opt/java17
 else
-    cp dep/amd/java /opt/java17
+    cp -r dep/amd/java /opt/java17
 fi
 
 
