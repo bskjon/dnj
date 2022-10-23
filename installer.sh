@@ -13,21 +13,23 @@ then
     printf "\nDownloading Ngssc\n"
     curl -L "https://github.com/bskjon/angular-server-side-configuration/releases/download/master/ngssc_arm_32bit" -o /usr/sbin/ngssc
 
-    printf "\n\nDownloading Java\n"
-    wget -q -O /java.tar.gz "https://cdn.azul.com/zulu-embedded/bin/zulu17.38.21-ca-jre17.0.5-linux_aarch32hf.tar.gz"
-
 else
     echo "Detected Target Arch x86_x64 (default)" $TARGETARCH >> /usr/sbin/ngssc.info
     printf "\nDownloading Ngssc\n"
     curl -L "https://github.com/kyubisation/angular-server-side-configuration/releases/download/$version/ngssc_64bit" -o /usr/sbin/ngssc
 
-    printf "\n\nDownloading Java\n"
-    wget -q -O /java.tar.gz "https://cdn.azul.com/zulu/bin/zulu17.38.21-ca-jre17.0.5-linux_x64.tar.gz"
 fi
 
 chmod +x /usr/sbin/ngssc
 
-tar -xzf /java.tar.gz --strip-components=1 -C /opt/java17
+
+if [[ $TARGETARCH == "arm"* ]] 
+then 
+    tar -xzf dep/java17-arm.tar.gz --strip-components=1 -C /opt/java17
+else
+    tar -xzf dep/java17-amd.tar.gz --strip-components=1 -C /opt/java17
+fi
+
 
 if [ -z "$(ls -A -- "/opt/java17")" ]; then
     printf "\n\nJava folder is empty!\n\n"
