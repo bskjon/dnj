@@ -26,5 +26,5 @@ jobs:
       uses: docker/setup-buildx-action@v2.2.1
       
     - name: Build the Docker image
-      run: docker buildx build --push --platform=linux/amd64,linux/arm64,linux/arm/v7 -t --progress=plain --no-cache bskjon/dnj:latest .
+      run: docker buildx build --push --platform=linux/amd64,linux/arm64,linux/arm/v7 -t --progress=plain bskjon/dnj:latest .
 
