@@ -36,6 +36,9 @@ jobs:
       
     - name: Extract Java
       run: |
+        mkdir -p dep/arm/java
+        mkdir -p dep/amd/java
+
         tar -xzf dep/arm/archive/java17.tar.gz  --strip-components=1 -C dep/arm/java
         tar -xzf dep/amd/archive/java17.tar.gz  --strip-components=1 -C dep/amd/java
       shell: bash
