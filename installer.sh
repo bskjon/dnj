@@ -27,7 +27,7 @@ fi
 
 chmod +x /usr/sbin/ngssc
 
-tar -xzf /java.tar.gz --strip-components=1 -C /opt/java17
+tar -xf /java.tar.gz --strip-components=1 -C /opt/java17
 
 if [ -z "$(ls -A -- "/opt/java17")" ]; then
     printf "\n\nJava folder is empty!\n\n"
